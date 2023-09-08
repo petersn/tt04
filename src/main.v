@@ -52,14 +52,14 @@ module snproc(
   assign error_occurred = error_occurred_state;
   //assign error_code_wires = {error_occurred, error_code};
 
-  always @(posedge clock) begin
-    if (!reset_n) begin
-      // error_occurred <= 0;
-      // error_code <= 0;
-      // error_instruction_pointer <= 0;
-      sram_mem_request <= 0;
-    end
-  end
+  // always @(posedge clock) begin
+  //   if (!reset_n) begin
+  //     // error_occurred <= 0;
+  //     // error_code <= 0;
+  //     // error_instruction_pointer <= 0;
+  //     //sram_mem_request <= 0;
+  //   end
+  // end
 
   `define REPORT_ERROR(code) \
     error_occurred_state <= 1; \
@@ -178,7 +178,9 @@ module snproc(
   );
 
   always @(posedge clock) begin
-    if (enable && reset_n) begin
+    if (enable && !reset_n) begin
+      sram_mem_request <= 0;
+    end else if (enable && reset_n) begin
       mem_write_enable <= 0;
       prev_control_mode_clock <= control_mode_clock;
       in_control_mode <= assert_control_mode;
