@@ -298,9 +298,9 @@ module snproc(
         end
       end else if (sram_mem_request) begin
         if (sram_mem_request_complete) begin
-          if (!sram_mem_write_enable) {
+          if (!sram_mem_write_enable) begin
             register_file[sram_read_target_register] <= sram_mem_read_value;
-          }
+          end
           sram_mem_request <= 0;
         end
       end else if ((!error_occurred_state) && (!single_step_trapped)) begin
