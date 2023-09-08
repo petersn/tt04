@@ -54,9 +54,9 @@ module snproc(
 
   always @(posedge clock) begin
     if (!reset_n) begin
-      error_occurred <= 0;
-      error_code <= 0;
-      error_instruction_pointer <= 0;
+      // error_occurred <= 0;
+      // error_code <= 0;
+      // error_instruction_pointer <= 0;
       sram_mem_request <= 0;
     end
   end
