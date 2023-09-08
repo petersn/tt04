@@ -1,7 +1,7 @@
 // snprocessor
 
 `define WORD_SIZE 16
-`define MAIN_MEMORY_SIZE 128
+`define MAIN_MEMORY_SIZE 100
 `define ADDRESS_SIZE 10
 `define REGISTER_COUNT 16
 `define LOG_REG_COUNT 4
